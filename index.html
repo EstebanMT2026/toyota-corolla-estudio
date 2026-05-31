@@ -192,91 +192,6 @@
 </head>
 <body>
   
-<script>
-async function cargarDatos() {
-
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQMxxnHU6T8B1YUar-9YDkASr-V4Qo7_R2sXHfSISb2xN-krxkQU-RrgdT9_fWrZLZ8IY78LRvwi-qy/pub?output=csv";
-
-  const response = await fetch(url);
-  const text = await response.text();
-
-  const filas = text.split("\n").slice(1);
-
-  let total = 0;
-  let taxis = 0;
-  let particulares = 0;
-
-  const municipios = new Set();
-
-  filas.forEach(fila => {
-
-    if (!fila.trim()) return;
-
-    total++;
-
-    /*
-      Divide columnas CSV
-    */
-    const columnas = fila.split(",");
-
-    /*
-      AJUSTA ESTOS ÍNDICES SEGÚN TU SHEET
-
-      columnas[2] = Tipo de uso
-      columnas[5] = Municipio
-    */
-
-    const tipoUso = columnas[2]
-      ? columnas[2].trim().replace(/"/g, "")
-      : "";
-
-    const municipio = columnas[5]
-      ? columnas[5].trim().replace(/"/g, "")
-      : "";
-
-    /*
-      Contar taxis
-    */
-    if (
-      tipoUso.toLowerCase() === "taxi"
-    ) {
-      taxis++;
-    }
-
-    /*
-      Contar particulares
-    */
-    if (
-      tipoUso.toLowerCase() === "particular"
-    ) {
-      particulares++;
-    }
-
-    /*
-      Municipios únicos
-    */
-    if (municipio !== "") {
-      municipios.add(municipio.toLowerCase());
-    }
-
-  });
-
-  /*
-    Mostrar resultados
-  */
-  document.getElementById("total-respuestas").innerText = total;
-  document.getElementById("municipios").innerText = municipios.size;
-  document.getElementById("taxis").innerText = taxis;
-  document.getElementById("particulares").innerText = particulares;
-
-}
-
-/*
-  Ejecutar
-*/
-cargarDatos();
-</script>
-  
 <header>
   <div class="container">
     <h1>¿Tienes un Toyota Corolla? Colabora con nosotros en un cuestionario rápido y anónimo.</h1>
@@ -325,26 +240,26 @@ cargarDatos();
 
 <section>
   <div class="container">
-    <h2>Datos recopilados</h2>
+    <h2>Casos registrados</h2>
 
     <div class="stats">
       <div class="card">
-        <h3 id="total-respuestas">0</h3>
-        <p>Cuestionarios recibidos</p>
+        <h3>12</h3>
+        <p>Incidencias registradas</p>
       </div>
 
       <div class="card">
-        <h3 id="municipios">0</h3>
+        <h3>4</h3>
         <p>Municipios registrados</p>
       </div>
 
       <div class="card">
-        <h3 id="taxis">0</h3>
+        <h3>8</h3>
         <p>Vehículos taxi</p>
       </div>
 
       <div class="card">
-        <h3 id="particulares">0</h3>
+        <h3>4</h3>
         <p>Vehículos particulares</p>
       </div>
     </div>
