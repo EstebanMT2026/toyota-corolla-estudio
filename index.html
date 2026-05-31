@@ -191,10 +191,11 @@
   </style>
 </head>
 <body>
+  
 <script>
 async function cargarDatos() {
 
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQMxxnHU6T8B1YUar-9YDkASr-V4Qo7_R2sXHfSISb2xN-krxkQU-RrgdT9_fWrZLZ8IY78LRvwi-qy/pubhtml";
+  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQMxxnHU6T8B1YUar-9YDkASr-V4Qo7_R2sXHfSISb2xN-krxkQU-RrgdT9_fWrZLZ8IY78LRvwi-qy/pub?output=csv";
 
   const response = await fetch(url);
   const text = await response.text();
@@ -213,27 +214,69 @@ async function cargarDatos() {
 
     total++;
 
+    /*
+      Divide columnas CSV
+    */
     const columnas = fila.split(",");
 
-    // Ajusta según columnas reales
-    const tipoUso = columnas[2]?.trim();
-    const municipio = columnas[5]?.trim();
+    /*
+      AJUSTA ESTOS ÍNDICES SEGÚN TU SHEET
 
-    if (tipoUso === "Taxi") taxis++;
-    if (tipoUso === "Particular") particulares++;
+      columnas[2] = Tipo de uso
+      columnas[5] = Municipio
+    */
 
-    if (municipio) municipios.add(municipio);
+    const tipoUso = columnas[2]
+      ? columnas[2].trim().replace(/"/g, "")
+      : "";
+
+    const municipio = columnas[5]
+      ? columnas[5].trim().replace(/"/g, "")
+      : "";
+
+    /*
+      Contar taxis
+    */
+    if (
+      tipoUso.toLowerCase() === "taxi"
+    ) {
+      taxis++;
+    }
+
+    /*
+      Contar particulares
+    */
+    if (
+      tipoUso.toLowerCase() === "particular"
+    ) {
+      particulares++;
+    }
+
+    /*
+      Municipios únicos
+    */
+    if (municipio !== "") {
+      municipios.add(municipio.toLowerCase());
+    }
 
   });
 
+  /*
+    Mostrar resultados
+  */
   document.getElementById("total-respuestas").innerText = total;
   document.getElementById("municipios").innerText = municipios.size;
   document.getElementById("taxis").innerText = taxis;
   document.getElementById("particulares").innerText = particulares;
+
 }
 
+/*
+  Ejecutar
+*/
 cargarDatos();
 </script>
+  
 <header>
   <div class="container">
     <h1>¿Tienes un Toyota Corolla? Colabora con nosotros en un cuestionario rápido y anónimo.</h1>
