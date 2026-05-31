@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de incidencias Toyota Corolla</title>
+  <meta name="description" content="Registro estadístico de incidencias mecánicas en Toyota Corolla. Averías de palier, punta de eje y tren delantero.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0.9;
+    }
+
+    .hero-badges {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 35px;
+      background: #d40000;
+      color: white;
+      padding: 16px 34px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #b30000;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .section-text {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-size: 2.5rem;
+      color: #d40000;
+      margin-bottom: 10px;
+    }
+
+    .features {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-box {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .feature-box h4 {
+      margin-bottom: 12px;
+      color: #d40000;
+    }
+
+    .form-wrapper {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .faq {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background: white;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+      color: #d40000;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 50px;
+    }
+
+    .privacy {
+      background: #fff;
+      border-radius: 14px;
+      padding: 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>¿Tienes un Toyota Corolla? Colabora con nosotros en un cuestionario rápido y anónimo.</h1>
+
+    <p>
+      No te pedimos experiencias personales ni datos que te identifiquen. Solo haremos unas preguntas sencillas sobre tu coche, como modelo, año, kilómetros y dónde se conduce, para analizar si existe algún patrón relacionado con problemas de palieres o del tren delantero.
+    </p>
+
+    <p style="margin-top:20px; max-width:850px; margin-left:auto; margin-right:auto; opacity:0.95;">
+      Es importante que tanto personas que han tenido incidencias como quienes no han sufrido averías completen el cuestionario, ya que esto permitirá comparar municipios y condiciones habituales de conducción.
+    </p>
+
+    <div class="hero-badges">
+      <div class="badge">Participación anónima</div>
+      <div class="badge">Menos de 2 minutos</div>
+      <div class="badge">Vehículos con y sin incidencias</div>
+    </div>
+
+    <a href="#formulario" class="btn">Rellenar el cuestionario</a>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Objetivo del cuestionario</h2>
+
+    <div class="section-text">
+      <p>
+        Este cuestionario busca recopilar información estadística para analizar si determinadas características de conducción o del entorno habitual pueden influir en la aparición de incidencias mecánicas relacionadas con palieres y componentes del tren delantero.
+      </p>
+
+      <br>
+
+      <p>
+        Uno de los aspectos más importantes del estudio es identificar en qué municipios circulan los vehículos y si factores como pendientes, curvas o desniveles habituales pueden tener relación con este tipo de averías.
+      </p>
+
+      <br>
+
+      <p>
+        Para obtener resultados útiles es fundamental comparar vehículos que han sufrido incidencias con otros que no han presentado averías.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Casos registrados</h2>
+
+    <div class="stats">
+      <div class="card">
+        <h3>12</h3>
+        <p>Incidencias registradas</p>
+      </div>
+
+      <div class="card">
+        <h3>4</h3>
+        <p>Municipios registrados</p>
+      </div>
+
+      <div class="card">
+        <h3>8</h3>
+        <p>Vehículos taxi</p>
+      </div>
+
+      <div class="card">
+        <h3>4</h3>
+        <p>Vehículos particulares</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Qué estamos analizando</h2>
+
+    <div class="features">
+      <div class="feature-box">
+        <h4>Kilometraje de avería</h4>
+        <p>Analizar a qué kilometraje aparecen las incidencias con mayor frecuencia.</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>Tipo de uso</h4>
+        <p>Diferenciar entre uso particular, taxi y uso intensivo.</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>Condiciones de circulación</h4>
+        <p>Relacionar las averías con pendientes, curvas y uso urbano intensivo.</p>
+      </div>
+
+      <div class="feature-box">
+        <h4>Comparación de casos</h4>
+        <p>Comparar vehículos con y sin incidencias para detectar posibles patrones comunes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formulario">
+  <div class="container">
+    <h2>Llenar cuestionario</h2>
+
+    <div class="section-text">
+      <p>
+        El cuestionario está dirigido tanto a propietarios con incidencias como a quienes no han tenido averías.
+      </p>
+    </div>
+
+    <br><br>
+
+    <div class="form-wrapper">
+
+      <!-- PEGA AQUÍ TU FORMULARIO TALLY -->
+
+      <iframe
+        data-tally-src="https://tally.so/embed/MeMrVk"
+        loading="lazy"
+        width="100%"
+        height="900"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Registro de incidencias Toyota Corolla">
+      </iframe>
+
+      <script>
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+          if(typeof Tally!=="undefined"){
+            Tally.loadEmbeds();
+          } else {
+            d.querySelectorAll("iframe[data-tally-src]:not([src])")
+            .forEach(function(e){e.src=e.dataset.tallySrc});
+          }
+        };
+
+        if(typeof Tally!=="undefined"){
+          v();
+        } else if(d.querySelector('script[src="'+w+'"]')==null){
+          var s=d.createElement("script");
+          s.src=w;
+          s.onload=v;
+          s.onerror=v;
+          d.body.appendChild(s);
+        }
+      </script>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Preguntas frecuentes</h2>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <h3>¿La participación es anónima?</h3>
+        <p>
+          Sí. El formulario puede completarse de forma totalmente anónima.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Para qué se utilizarán los datos?</h3>
+        <p>
+          Los datos serán utilizados únicamente con fines estadísticos y de análisis técnico.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Quién puede participar?</h3>
+        <p>
+          Propietarios particulares, taxistas y profesionales que utilicen Toyota Corolla.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Es obligatorio dejar datos personales?</h3>
+        <p>
+          No. El cuestionario está pensado para completarse de forma anónima.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="privacy">
+      <h2>Privacidad</h2>
+
+      <p>
+        La información recopilada en este formulario será utilizada exclusivamente con fines estadísticos y de análisis técnico relacionados con incidencias mecánicas en vehículos Toyota Corolla.
+      </p>
+
+      <br>
+
+      <p>
+        La participación es voluntaria y no es necesario facilitar datos personales.
+      </p>
+
+      <br>
+
+      <p>
+        No se compartirán datos identificativos con terceros.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Registro de incidencias Toyota Corolla © 2026
+  </p>
+
+  <br>
+
+  <p>
+    Contacto: Paliertoyota@yahoo.com
+  </p>
+</footer>
+
+</body>
+</html>
