@@ -140,6 +140,25 @@
       overflow: hidden;
     }
 
+.scroll-indicator {
+  text-align: center;
+  font-weight: bold;
+  color: #d40000;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}
+
     .faq {
       max-width: 900px;
       margin: auto;
@@ -306,43 +325,46 @@
 
     <br><br>
 
-    <div class="form-wrapper">
+<div class="form-wrapper">
 
-      <!-- PEGA AQUÍ TU FORMULARIO TALLY -->
+  <div class="scroll-indicator">
+    ↓ Continúa bajando para completar todo el cuestionario ↓
+  </div>
 
-      <iframe
-        data-tally-src="https://tally.so/embed/MeMrVk"
-        loading="lazy"
-        width="100%"
-        height="900"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Registro de incidencias Toyota Corolla">
-      </iframe>
+  <iframe
+    data-tally-src="https://tally.so/embed/MeMrVk"
+    loading="lazy"
+    width="100%"
+    height="2200"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Registro de incidencias Toyota Corolla">
+  </iframe>
 
-      <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-          if(typeof Tally!=="undefined"){
-            Tally.loadEmbeds();
-          } else {
-            d.querySelectorAll("iframe[data-tally-src]:not([src])")
-            .forEach(function(e){e.src=e.dataset.tallySrc});
-          }
-        };
+  <script>
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+      if(typeof Tally!=="undefined"){
+        Tally.loadEmbeds();
+      } else {
+        d.querySelectorAll("iframe[data-tally-src]:not([src])")
+        .forEach(function(e){e.src=e.dataset.tallySrc});
+      }
+    };
 
-        if(typeof Tally!=="undefined"){
-          v();
-        } else if(d.querySelector('script[src="'+w+'"]')==null){
-          var s=d.createElement("script");
-          s.src=w;
-          s.onload=v;
-          s.onerror=v;
-          d.body.appendChild(s);
-        }
-      </script>
+    if(typeof Tally!=="undefined"){
+      v();
+    } else if(d.querySelector('script[src="'+w+'"]')==null){
+      var s=d.createElement("script");
+      s.src=w;
+      s.onload=v;
+      s.onerror=v;
+      d.body.appendChild(s);
+    }
+  </script>
 
-    </div>
+</div>
+
   </div>
 </section>
 
